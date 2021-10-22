@@ -22,6 +22,7 @@
 		75FDA2592720F63F0077F12B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FDA2582720F63F0077F12B /* LoginViewController.swift */; };
 		75FDA25E272106A20077F12B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75FDA260272106A20077F12B /* Localizable.strings */; };
 		75FDA26527215BB90077F12B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FDA26427215BB90077F12B /* GoogleService-Info.plist */; };
+		75FDA2672722A2990077F12B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FDA2662722A2990077F12B /* HomeViewController.swift */; };
 		76F20DF7AD9C6BE514C01DD0 /* Pods_internalAppForiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45CA21A6AF811D4CAC042C9 /* Pods_internalAppForiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		75FDA261272106A60077F12B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		75FDA263272108020077F12B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		75FDA26427215BB90077F12B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75FDA2662722A2990077F12B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		810A44DD3037A90484917CED /* Pods-internalAppForiOS-internalAppForiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-internalAppForiOS-internalAppForiOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-internalAppForiOS-internalAppForiOSUITests/Pods-internalAppForiOS-internalAppForiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B49447277BBF2BF0D071A3 /* Pods-internalAppForiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-internalAppForiOSTests.release.xcconfig"; path = "Target Support Files/Pods-internalAppForiOSTests/Pods-internalAppForiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B869D2364DD7AE25415976FD /* Pods_internalAppForiOS_internalAppForiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_internalAppForiOS_internalAppForiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,12 +123,12 @@
 		75FDA2122720E8890077F12B = {
 			isa = PBXGroup;
 			children = (
+				75FDA24F2720EA830077F12B /* Frameworks */,
 				75FDA21D2720E8890077F12B /* internalAppForiOS */,
 				75FDA2342720E88B0077F12B /* internalAppForiOSTests */,
 				75FDA23E2720E88B0077F12B /* internalAppForiOSUITests */,
-				75FDA21C2720E8890077F12B /* Products */,
-				75FDA24F2720EA830077F12B /* Frameworks */,
 				119116E2FEA0B2ADC2609BA3 /* Pods */,
+				75FDA21C2720E8890077F12B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +156,7 @@
 				75FDA2292720E88B0077F12B /* LaunchScreen.storyboard */,
 				75FDA2242720E8890077F12B /* Main.storyboard */,
 				75FDA260272106A20077F12B /* Localizable.strings */,
+				75FDA2662722A2990077F12B /* HomeViewController.swift */,
 			);
 			path = internalAppForiOS;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75FDA2672722A2990077F12B /* HomeViewController.swift in Sources */,
 				75FDA2592720F63F0077F12B /* LoginViewController.swift in Sources */,
 				75FDA2232720E8890077F12B /* ViewController.swift in Sources */,
 				75FDA21F2720E8890077F12B /* AppDelegate.swift in Sources */,

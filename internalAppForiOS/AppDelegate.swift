@@ -12,7 +12,7 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //} else {
         //    NSLog(@"remoteNotif = null");
         //}
-        Messaging.messaging().subscribe(toTopic: "test") { error in
+        Messaging.messaging().subscribe(toTopic: "topic") { error in
           print("Subscribed to test topic")
         }
         
@@ -91,37 +91,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult)
                        -> Void) {
+        if let messageID = userInfo[gcmMessageIDKey] {
+              print("Message ID: \(messageID)")
+        }
+
+        // Print full message.
+        //print(userInfo)
+        
+        if let aps = userInfo["aps"] as? NSDictionary {
+            //print("===>1")
+            if let alert = aps["alert"] as? NSDictionary {
+                //print("===>2")
+                //print(alert)
+                if let title = alert["title"] as? NSString {
+                   //Do stuff
+                    print(title)
+                }
+                if let body = alert["body"] as? NSString {
+                    //Do stuff
+                    print(body)
+                }
+            } 
+        }
+        
         //NSString *title = [userInfo objectForKey:@"title"];
-        let title = userInfo["title"] as? String
+        //let title = userInfo["title"] as? String
+        //NSLog("title = %s", title!);
         //NSString *body  = [userInfo objectForKey:@"body"];
-        let body = userInfo["body"] as? String
+        //let body = userInfo["body"] as? String
+        //NSLog("body = %s", body!);
         //NSInteger badge = [[userInfo objectForKey:@"badge"] integerValue];
         
         NSLog("current badge = %ld", UIApplication.shared.applicationIconBadgeNumber);
         //print("current badge = %ld", UIApplication.shared.applicationIconBadgeNumber)
         
-        if (title != nil) {
-            NSLog("title = %s", title!);
-            //print("title = %s", title as Any)
-        }
-        
-        if (body != nil) {
-            NSLog("body = %s", body!);
-            //print("body = %s", body as Any)
-        }
         
         
         //completionHandler(UIBackgroundFetchResultNewData);
         completionHandler(UIBackgroundFetchResult.newData)
         
-        if (title != nil && body != nil) {
+        /*if (title != nil && body != nil) {
         
             //NSDictionary *notifyDetail = @{@"title": title,
             //                             @"body": body};
         
             //[[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:self userInfo:nil];
             NotificationCenter.default.post(name: NSNotification.Name("TestNotification"), object: self, userInfo: nil)
-        }
+        }*/
     }
     func handleRemoteNotification(userInfo: NSDictionary) {
         
@@ -148,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
 }
-
+@available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
     // 使用者點選推播時觸發
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

@@ -18,6 +18,11 @@ target 'internalAppForiOS' do
 
 end
 
-
 pod 'Firebase/Analytics'
 pod 'Firebase/Messaging'
+#pod 'ImageSlideshow', '~> 1.9.0'
+#pod "ImageSlideshow/Alamofire"
+#pod "ImageSlideshow/AFURL"
+#pod "ImageSlideshow/SDWebImage"
+#pod "ImageSlideshow/Kingfisher"
+#pod "ImageSlideshow/Parse"
