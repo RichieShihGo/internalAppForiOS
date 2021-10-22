@@ -92,35 +92,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult)
                        -> Void) {
         //NSString *title = [userInfo objectForKey:@"title"];
-        let title = UserDefaults.standard.object(forKey: "title")
+        let title = userInfo["title"] as? String
         //NSString *body  = [userInfo objectForKey:@"body"];
-        let body = UserDefaults.standard.object(forKey: "body")
+        let body = userInfo["body"] as? String
         //NSInteger badge = [[userInfo objectForKey:@"badge"] integerValue];
         
-        //NSLog(@"current badge = %ld", (long)[UIApplication sharedApplication].applicationIconBadgeNumber);
-        print("current badge = %ld", UIApplication.shared.applicationIconBadgeNumber)
+        NSLog("current badge = %ld", UIApplication.shared.applicationIconBadgeNumber);
+        //print("current badge = %ld", UIApplication.shared.applicationIconBadgeNumber)
         
         if (title != nil) {
-            //NSLog(@"title = %@", title);
-            print("title = %s", title as Any)
+            NSLog("title = %s", title!);
+            //print("title = %s", title as Any)
         }
         
         if (body != nil) {
-            //NSLog(@"body = %@", body);
-            print("body = %s", body as Any)
+            NSLog("body = %s", body!);
+            //print("body = %s", body as Any)
         }
         
         
-        /*completionHandler(UIBackgroundFetchResultNewData);
-        
+        //completionHandler(UIBackgroundFetchResultNewData);
+        completionHandler(UIBackgroundFetchResult.newData)
         
         if (title != nil && body != nil) {
         
             //NSDictionary *notifyDetail = @{@"title": title,
             //                             @"body": body};
         
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:self userInfo:nil];
-        }*/
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:self userInfo:nil];
+            NotificationCenter.default.post(name: NSNotification.Name("TestNotification"), object: self, userInfo: nil)
+        }
     }
     func handleRemoteNotification(userInfo: NSDictionary) {
         
